@@ -1,0 +1,10 @@
+let n = 27;
+console.log(typeof n);
+console.log(n.toString());
+console.log(String(n));
+console.log("" + n);
+let txt = "Blablabla bla blabla";
+console.log(typeof txt);
+console.log(parseInt(txt));
+console.log(Number(txt));
+console.log(+txt);
