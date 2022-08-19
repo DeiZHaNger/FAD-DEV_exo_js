@@ -4,10 +4,10 @@ let choice = parseInt(prompt(`Sort à utiliser :\n0 (par défaut) = ${spells[0].
 let spell;
 try {
     spell = spells[choice];
-    alert(`Vous utilisez le sort ${spell.label}`)
+    alert(`Vous utilisez le sort ${spell.label}`);
 } catch {
-    alert(`Vous n'avez pas encore appris ce sort!\nVous utilisez le sort Boule de feu par défaut`);
     spell = spells[0];
+    alert(`Vous n'avez pas encore appris ce sort!\nVous utilisez le sort ${spell.label} par défaut`);
 }
 
 alert(`Vous infligez ${spell.dmg} pts de dégats`);
