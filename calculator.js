@@ -1,12 +1,7 @@
 const add = (a, b) => a + b;
 const sub = (a, b) => a - b;
 const multi = (a, b) => a * b;
-const div = function (a, b) { 
-    if (a == 0 && b == 0) {
-        return undefined;
-    }  
-    return a / b;
-};
+const div = (a, b) => a == 0 && b == 0 ? undefined : a / b;
 
 const operators = {"+" : add, "-" : sub, "*" : multi, "/" : div};
 
