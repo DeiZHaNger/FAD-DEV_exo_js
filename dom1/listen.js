@@ -12,7 +12,7 @@ const textSection = document.createTextNode("Blabla blablabla blaaaaaaablabla bl
 h1.textContent = "Main Title";
 mainSection.append(h1);
 mainSection.append(textSection);
-document.body.append(mainSection);
+document.body.insertBefore(mainSection, document.body.lastElementChild);
 
 // h1.addEventListener('click', () => {alert("Click sur h1")});
 // mainSection.addEventListener('click', () => {alert("Click sur main")});
