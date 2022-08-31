@@ -11,14 +11,21 @@ function getRandomColor() {
 }
 
 const buttonColorChange = document.getElementById("colorChange");
+const linkToggleColorChange = document.createElement("a");
+linkToggleColorChange.href = "#";
+linkToggleColorChange.textContent = "Toggle Color Change";
+document.querySelector("header").append(linkToggleColorChange);
 
-const changeColor = setInterval (function () {
+const changeColor = function () {
     buttonColorChange.style.backgroundColor = getRandomColor();
-}, 2000);
+};
 
-const linkStopColorChange = document.createElement("a");
-linkStopColorChange.href = "#";
-linkStopColorChange.textContent = "Stop Color Change";
-document.querySelector("header").append(linkStopColorChange);
-
-linkStopColorChange.addEventListener('click', () => {clearInterval(changeColor)});
+let runningColor = setInterval(changeColor, 2000);
+linkToggleColorChange.addEventListener('click', function () {
+    if (runningColor) {
+        clearInterval(runningColor);
+        runningColor = null;
+    } else {
+        runningColor = setInterval(changeColor, 2000);
+    }
+});
