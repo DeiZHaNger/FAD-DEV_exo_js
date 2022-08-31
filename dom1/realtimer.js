@@ -3,11 +3,12 @@
     const startButton = document.querySelector("button");
     const h2 = document.querySelector("h2");
 
-    let seconds = MAX_SECONDS;
+    let seconds;
     let timer = null;
 
     function start() {
         if (timer == null) {
+            seconds = MAX_SECONDS;
             displayTime();
             timer = setInterval(countdown, 1000);
         }
@@ -16,7 +17,6 @@
     function stop() {
         clearInterval(timer);
         timer = null;
-        seconds = MAX_SECONDS;
     }
 
     function displayTime() {
