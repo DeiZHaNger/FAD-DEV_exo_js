@@ -18,11 +18,5 @@ document.body.insertBefore(mainSection, document.body.lastElementChild);
 // mainSection.addEventListener('click', () => {alert("Click sur main")});
 
 mainSection.addEventListener('click', function (e) {
-    let message = "Click sur ";
-    if (e.target == h1) {
-        message += h1.nodeName;
-    } else {
-        message += mainSection.nodeName;
-    }
-    alert(message);
+    alert(`Clic sur ${e.target == h1 ? h1.nodeName : mainSection.nodeName}`);
 });
