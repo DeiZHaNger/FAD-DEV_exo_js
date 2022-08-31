@@ -4,11 +4,13 @@
     const h2 = document.querySelector("h2");
 
     let seconds = MAX_SECONDS;
-    let timer;
+    let timer = null;
 
     function start() {
-        displayTime();
-        timer = setInterval(countdown, 1000);
+        if (timer == null) {
+            displayTime();
+            timer = setInterval(countdown, 1000);
+        }
     }
 
     function stop() {
