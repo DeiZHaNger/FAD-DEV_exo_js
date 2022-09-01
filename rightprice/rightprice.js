@@ -1,6 +1,6 @@
 (() => {
     const PRICE_MIN = 1, PRICE_MAX = 1000;
-    let price, attempts, found;
+    let price, attempts, found, autoplay;
 
     const h2 = document.querySelector("h2");
     h2.textContent += `${PRICE_MIN}€ et ${PRICE_MAX}€`;
@@ -21,12 +21,12 @@
     }
 
     function toggleButtonsVisibility() {
-        for (let item of [priceGuess, btGuess, btStop, btStart]) {
+        for (let item of [priceGuess, btGuess, btStop, btStart, btAuto]) {
             item.classList.toggle("hidden");
         }
     }
 
-    function resetGame() {
+    function startGame() {
         found = false;
         price = getRandomInt(PRICE_MAX, PRICE_MIN);
         attempts = 0;
@@ -37,10 +37,18 @@
         toggleButtonsVisibility();
 
         btGuess.addEventListener('click', checkGuess);
+
+        if (autoplay) {
+            btStop.addEventListener('click', stopAutoPlay);
+        } else {
+            btStop.addEventListener('click', stopGame);
+        }
     }
+    
 
     function stopGame() {
         btGuess.removeEventListener('click', checkGuess);
+        btStop.removeEventListener('click', stopGame);
         toggleButtonsVisibility();
         if (found) {
             textResult.textContent = "Bravo ! Vous avez gagné, Champagne !";
@@ -76,6 +84,50 @@
         }
     }
 
-    btStart.addEventListener('click', resetGame);
-    btStop.addEventListener('click', stopGame);
+    btStart.addEventListener('click', function () {
+        autoplay = false;
+        startGame();
+    });
+
+
+    /* --------------- AUTO-PLAY ---------------------*/
+
+    const btAuto = document.getElementById("bt-auto");
+    const simClick = new Event('click');
+    let timer = null;
+
+    btAuto.addEventListener('click', function () {
+        autoplay = true;
+        startGame();
+        btGuess.classList.toggle("hidden");
+        autoPlay(PRICE_MIN, PRICE_MAX);
+    })
+
+    function autoPlay(min, max) {
+        let guess = Math.floor(min + (max - min)/2);;
+        priceGuess.value = guess;
+        btGuess.dispatchEvent(simClick);
+        if (found) {
+            stopAutoPlay();
+            console.log(`Le résultat était ${guess} et a été trouvé.`)
+        } else {
+            if (guess < price) {
+                timer = setTimeout(function () {autoPlay(guess + 1, max)}, 1000);
+            } else {
+                timer = setTimeout(function () {autoPlay(min, guess)}, 1000);
+            }
+        }
+    }
+
+    function stopAutoPlay() {
+        btGuess.removeEventListener('click', checkGuess);
+        btStop.removeEventListener('click', stopAutoPlay);
+        clearTimeout(timer);
+        if (!found) {
+            toggleButtonsVisibility();
+            textResult.textContent = "Auto-play stoppé"
+            textScore.classList.add("hidden");
+        }
+        btGuess.classList.toggle("hidden");
+    }
 })();
