@@ -25,7 +25,9 @@
         let currQuoteIdx = -1;
 
         function displayNewQuote() {
-            let item = data[getNewRandomInt(currQuoteIdx, nbQuotes)];
+            currQuoteIdx = getNewRandomInt(currQuoteIdx, nbQuotes);
+            let item = data[currQuoteIdx];
+
             quoteText.textContent = item.text;
             quoteSrc.textContent = item.author;
         }
