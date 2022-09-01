@@ -12,8 +12,8 @@
         return Math.floor(Math.random() * (max - min)) + min;
     }
 
-    function getNewRandomInt(currValue, max, min=0) {
-        return (currValue + getRandomInt(max, 1)) % max;
+    function getNewRandomIdx(currIdx, arrLen) {
+        return (currIdx + getRandomInt(arrLen, 1)) % arrLen;
     }
 
     function main(data) {
@@ -25,7 +25,7 @@
         let currQuoteIdx = -1;
 
         function displayNewQuote() {
-            currQuoteIdx = getNewRandomInt(currQuoteIdx, nbQuotes);
+            currQuoteIdx = getNewRandomIdx(currQuoteIdx, nbQuotes);
             let item = data[currQuoteIdx];
 
             quoteText.textContent = item.text;
