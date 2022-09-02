@@ -12,19 +12,72 @@
 <body>
     <div id="modal" class="modal hidden">
 
+        <div id="modal-login" class="modal-content hidden">
+            <img class="close" target="modal-login" src="asset/img/cross.svg">
+            <div class="flex-around">
+                <h3>Login</h3>
+                <h3>Sign in</h3>
+            </div>
+        </div>
+
         <div id="modal-newsletter" class="modal-content hidden">
-            <img class="close" target="modal-newsletter" src="asset/img/cross.svg">
-            <h2>Newsletter</h2>
+            <form action="#">
+                <div>
+                    <img class="close" target="modal-newsletter" src="asset/img/cross.svg">
+                    <h3>Rester à l'écoute des nouvelles </h3>
+
+                    <p>Une news letter clair et efficace :</p>
+                    <p>- Une seule par mois</p>
+                    <p>- Nous ne communiquons votre addresse à personne</p>
+                    <p>- Du contenus pertinent en relation avec vos préférences</p>
+                </div>
+                <label>Votre Email</label>
+                <input type="email" name="" id="">
+
+                <img class="img-bike" src="asset/img/newsletter-modal/news_bike.png" alt="Bike">
+                <hr>
+                <div class="newsletter-validate">
+                    <button class="btn-validate">Valider</button>
+                </div>
+            </form>
         </div>
 
         <div id="modal-cookies" class="modal-content hidden">
-            <img class="close" target="modal-cookies"src="asset/img/cross.svg">
-            <h2>Cookies</h2>
+            <div>
+                <img class="img-cookie-bg" src="asset/img/cookie-modal/cookie_bg_one.png" alt="Cookie">
+            </div>
+            
+            <form action="#">
+                <div class="form-header">
+                    <h3>Votre vie privée nous concerne !</h3>
+                    <img class="close" target="modal-cookies" src="asset/img/cross.svg">
+                </div>
+
+                <div>
+                    <p>Notre site et ses partenaires souhaitent utiliser des cookies ou autres traceurs et traiter vos
+                        données personnelles (données de navigation, données renseignées dans votre compte et/ou lors de
+                        l'utilisation des services, etc.) pour :</p>
+                    <p>- Mesure d'audience,</p>
+                    <p>- Fonctionnalités liées aux réseaux sociaux,</p>
+                    <p>- Contenu personnalisé et mesure de performance du contenu,</p>
+                    <p>- Publicités personnalisées, mesure de performance des publicités et données d'audience,</p>
+                    <p>- Développer et améliorer les produits,</p>
+                    <p>- Données de géolocalisation précises et identification par analyse du terminal,</p>
+
+                </div>
+                <hr>
+                <div class="cookies-options">
+                    <button class="btn-cookies-settings">Paramétrer</button>
+                    <button class="btn-cookies-decline">Refuser</button>
+                    <button class="btn-cookies-accept">Accepter</button>
+                </div>
+            </form>
         </div>
       
     </div>
 
     <div class="modal-links">
+        <img id="img-login" class="modal-link img-login" target="modal-login" src="asset/img/login-modal/login_icon.svg" alt="Login">
         <img id="img-newsletter" class="modal-link img-newsletter" target="modal-newsletter" src="asset/img/newsletter-modal/mail.svg" alt="Newsletter">
         <img id="img-cookies" class="modal-link img-cookies" target="modal-cookies" src="asset/img/cookie-modal/cookie.png" alt="Cookies">
     </div>

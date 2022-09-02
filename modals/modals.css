@@ -16,6 +16,12 @@
     height: auto;
 }
 
+.img-login {
+    width: 96px;
+    height: auto;
+    padding-right: 36px;
+}
+
 .modal-link {
     cursor: pointer;
 }
@@ -23,28 +29,35 @@
 .close {
     width: 30px;
     height: 30px;
+    cursor: pointer;
 }
 
 .hidden {
     display: none;
 }
 
+.flex-around {
+    display: flex;
+    justify-content: space-around;
+}
+
 .modal {
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    cursor: url(./asset/img/cross_white.png) 10 10, auto;
   }
   
-  /* Modal Content/Box */
-  .modal-content {
+.modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 80%;
+    cursor: auto;
   }
