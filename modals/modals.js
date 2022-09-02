@@ -19,13 +19,13 @@ const modalButtons = (function () {
 function toggleModal(modalSection) {
     modalSection.classList.toggle("hidden");
     modal.classList.toggle("hidden");
+    currMod = currMod == null ? modalSection : null;
 }
 
 modalButtons.forEach(function(item) {
     for (let elm of [item.self, item.close]) {
         elm.addEventListener('click', function () {
             toggleModal(item.target);
-            currMod = currMod == null ? item.target : null;
         });
     }
 });
@@ -33,6 +33,5 @@ modalButtons.forEach(function(item) {
 window.addEventListener('click', function (ev) {
     if (ev.target == modal) {
         toggleModal(currMod);
-        currMod = null;
     }
 });
