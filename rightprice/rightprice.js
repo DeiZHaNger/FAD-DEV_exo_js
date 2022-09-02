@@ -66,6 +66,7 @@
     function checkGuess() {
         let guess = priceGuess.value;
         console.log(guess);
+        console.log(typeof guess);
         if (isNaN(guess) || guess == "" || guess < PRICE_MIN || guess > PRICE_MAX) {
             priceGuess.classList.add("error");
             alert(`Nombre attendu. Entre ${PRICE_MIN} et ${PRICE_MAX}.`);
