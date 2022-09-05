@@ -26,8 +26,8 @@ class Fighter {
         }
     }
 
-    info() {
-        console.log(`${this.pseudo}, ${this.type} de niveau ${this.level}, a ${this.damage} points d'attaque et ${this.health} points de vie.`);
+    get info() {
+        return `${this.pseudo}, ${this.type} de niveau ${this.level}, a ${this.damage} points d'attaque et ${this.health} points de vie.`;
     }
 
     /**
@@ -110,10 +110,10 @@ class Warrior extends Fighter {
 const aragorn = new Warrior("Aragorn");
 const saroumane = new Magician("Saroumane");
 
-aragorn.info();
-saroumane.info();
+console.log(aragorn.info);
+console.log(saroumane.info);
 saroumane.attack(aragorn);
-aragorn.info();
+console.log(aragorn.info);
 aragorn.attack(saroumane);
-saroumane.info();
+console.log(saroumane.info);
 saroumane.useSpecialSkill(aragorn);
