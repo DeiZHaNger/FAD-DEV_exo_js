@@ -1,0 +1,39 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.full-container {
+    min-height: 100vh;
+    padding: 4vh 4vw;
+}
+
+.item-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.info-container {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 8vh;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-content: center;
+    gap: 2em;
+}
+
+/* img {
+    width: 200px;
+    height: 200px;
+} */
