@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.hidden {
+    display: none;
+}
+
 .full-container {
     min-height: 100vh;
     padding: 4vh 4vw;

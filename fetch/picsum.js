@@ -9,20 +9,20 @@
         return Math.floor(Math.random() * (max - min)) + min;
     }
 
-    function main(url) {
+    function main() {
         fetch(url)
         .then(function(response) {
             if (response.ok) {
                 return response.json();
             }
-            throw new Error(response.status);
+            throw new Error(`HTTPError ${response.status}`);
         })
         .then(data => display(data))
-        .catch(e => alert(`Impossible d'afficher la page.\nCode erreur ${e.message}`));
+        .catch(e => alert(`Impossible d'afficher la page.\nErreur: ${e.message}`));
     }
 
     function display(data) {
-        // console.table(data);
+        console.table(data);
         data.forEach(function (e) {
             let itemContainer = document.createElement('div');
             let infoContainer = document.createElement('div');
@@ -43,7 +43,10 @@
         });
     }
 
-    function setURL(page) {
+    function setURL(page) { 
+        // url = "http.error";
+        // url = "http://network.error";
+        // url = ""; // parse error
         url = `https://picsum.photos/v2/list?page=${page}&limit=10`;
         console.log(`currURL = ${url}`);
     }
@@ -59,7 +62,7 @@
     }
 
     setRandomPageURL();
-    window.addEventListener('load', () => main(url));
+    window.addEventListener('load', main);
 
     btnReload.addEventListener('click', function () {
         setRandomPageURL();
