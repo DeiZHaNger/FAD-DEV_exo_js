@@ -21,12 +21,12 @@
                 <form action="#" id="create">
                     <legend>Add a Note</legend>
                     <div>
-                        <label for="note-label">Intitulé</label>
-                        <input type="text" id="note-label">
+                        <label for="label">Intitulé</label>
+                        <input type="text" id="label" name="label">
                     </div>
                     <div>
-                        <label for="note-content">Détails</label>
-                        <input type="text" id="note-content">
+                        <label for="content">Détails</label>
+                        <input type="text" id="content" name="content">
                     </div>
                     <div>
                         <input type="submit" value="Ajouter">
@@ -35,7 +35,7 @@
                 </form>
             </div>
 
-            <div>
+            <div id="trashcan" class="trashcan">
                 <h3>Delete Note</h3>
             </div>
         </aside>

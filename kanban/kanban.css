@@ -24,3 +24,30 @@
     display: flex;
     gap: calc(2 * var(--sizing-base));
 }
+
+main {
+    display: flex;
+    justify-content: space-around;
+}
+
+section {
+    background-color: darksalmon;
+    margin: 2em 1em;
+    padding: 2em 4em;
+}
+
+.note-card-container {
+    background-color: aquamarine;
+    margin: 2em;
+    padding: 2em;
+}
+
+.note-card-container:hover {
+    cursor: grab;
+}
+
+.trashcan {
+    background-color: chocolate;
+    margin: 2em;
+    padding: 2em;
+}

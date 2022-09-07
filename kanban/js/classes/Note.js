@@ -12,10 +12,10 @@ export class Note {
      * @param {Number} timestamp 
      * @param {String} key 
      */
-    constructor (label, content, state=0, trash=false, timestamp=null, key=null) {
+    constructor (label, content, state=null, trash=false, timestamp=null, key=null) {
         this.label = label;
         this.content = content;
-        this.state = state;
+        this.state = this.constructor.states.includes(state) ? state : this.constructor.states[0];
         this.trash = trash;
         this.timestamp = timestamp ? timestamp : Date.now();
         this.key = key ? key : this.genKey();
@@ -43,20 +43,24 @@ export class Note {
         return this.constructor.states[this.state];
     }
 
-    changeState(i) {
-        if (i == this.state) return;
-
-        if (0 <= i && i < this.constructor.states.length) {
-            this.state = i;
+    changeState(state) {
+        if (state != this.state && this.constructor.states.includes(state)) {
+            this.state = state;
             this.timestamp = Date.now();
             this.key = this.genKey();
+
+            return true;
         }
+
+        return false;
     }
 
-    changeStateLocal(i) {
+    changeStateLocal(state) {
         this.unstoreLocal();
-        this.changeState(i);
+        let result = this.changeState(state);
         this.storeLocal();
+        
+        return result;
     }
 
     storeLocal() {
@@ -87,6 +91,6 @@ export class Note {
         for (let [_, value] of Object.entries(localStorage).filter(e => e[0].startsWith(this.keyLabel))) {
             result.push(this.fromJson(value));
         }
-        return result;
+        return result.sort((a, b) => a.timestamp - b.timestamp);
     }
 }
