@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="kanban.css">
+    <title>Kanban</title>
+</head>
+
+<body>
+    <div class="full-container">
+        <header>
+            <h1>Kanban</h1>
+        </header>
+
+        <aside class="crud">
+            <div>
+                <form action="#" id="create">
+                    <legend>Add a Note</legend>
+                    <div>
+                        <label for="note-label">Intitulé</label>
+                        <input type="text" id="note-label">
+                    </div>
+                    <div>
+                        <label for="note-content">Détails</label>
+                        <input type="text" id="note-content">
+                    </div>
+                    <div>
+                        <input type="submit" value="Ajouter">
+                        <input type="reset" value="Effacer">
+                    </div>
+                </form>
+            </div>
+
+            <div>
+                <h3>Delete Note</h3>
+            </div>
+        </aside>
+
+        <main>
+            <section id="todo">
+                <div id="note-card-sample">
+                    <h3 class="note-card-label"></h3>
+                    <div class="note-card-content"></div>
+                    <h5 class="note-card-timestamp"></h5>
+                </div>
+            </section>
+
+            <section id="done">
+                
+            </section>
+
+            <section id="verified">
+
+            </section>
+        </main>
+
+        <footer>
+            <h5>Florent Maury / FAD-DEV22-31</h5>
+        </footer>
+    </div>
+
+    <script src="./js/kanban.js" type="module"></script>
+</body>
+
+</html>

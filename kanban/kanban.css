@@ -1,0 +1,26 @@
+:root {
+    --sizing-base: 1em;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#sample {
+    display: none;
+}
+
+.full-container {
+    min-height: 100vh;
+    width: 100vw;
+    padding: 2vh 0;
+}
+
+.crud {
+    max-width: 640px;
+    margin: auto;
+    display: flex;
+    gap: calc(2 * var(--sizing-base));
+}
