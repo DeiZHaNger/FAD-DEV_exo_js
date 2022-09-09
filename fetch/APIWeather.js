@@ -42,6 +42,7 @@ export class APIWeather {
      * @param {String} key 
      * @param {String} units 
      * @param {String} lang 
+     * @param {HTMLElement} field 
      */
     static init(url, key, units, lang, field=null) {
         this.apiURL = url;
